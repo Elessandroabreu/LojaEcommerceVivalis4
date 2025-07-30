@@ -233,7 +233,7 @@ public class Main {
                 }
 
             } else if (opcao == 7) {
-                System.out.println("\n*** SUPORTE  ***");
+                System.out.println("\n*** SUPORTE ***");
                 System.out.println("Atendimento: 8h às 18h de segunda a sexta-feira");
                 System.out.println("Email: suportevivelis@vivelis.com");
                 System.out.println("Nosso WhatsApp: (48) 99655-3129");
