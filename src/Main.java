@@ -110,7 +110,7 @@ public class Main {
 
                     if (!encontrou) {
                         carrinho.add(new ItemCarrinho(produtos.get(num), quantidade));
-                        System.out.println("Produto adicionado ao carrinho!");
+                        System.out.println("Produto adicionado ao seu carrinho!");
                     }
                 } else {
                     System.out.println("Produto inválido!");
@@ -166,16 +166,16 @@ public class Main {
                                 " | R$ " + item.produto.preco + " | Subtotal: R$ " + subtotal);
                         total = total + subtotal;
                     }
-                    System.out.println("TOTAL DO CARRINHO: R$ " + total);
+                    System.out.println("\nTOTAL DO CARRINHO: R$ " + total);
 
                     if (total > 199.90) {
                         System.out.println("FRETE GRÁTIS!");
                     } else if (total <= 199.90) {
-                        total = total + 29.90;
-                        System.out.println("Vai ser adicionado o frete de R$ 29,90 a sua compra.\n");
-                        System.out.printf("Total do produto + Frete: R$ %.2f \n", total);
                         double falta = 199.90 - total;
-                        System.out.printf("Falta R$ %.2f para o frete ser grátis, /n", falta);
+                        System.out.printf("Falta R$ %.2f para o frete ser grátis \n", falta);
+                        System.out.println("Vai ser adicionado o frete de R$ 29,90 a sua compra.\n");
+                        total = total + 29.90;
+                        System.out.printf("Total do produto + Frete: R$ %.2f \n", total);
                     }
                 }
 
