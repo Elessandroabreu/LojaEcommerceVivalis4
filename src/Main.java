@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner entrada = new Scanner(System.in);
         ArrayList<Produto> produtos = new ArrayList<>();
         HashMap<String, Cliente> clientes = new HashMap<>();
         ArrayList<ItemCarrinho> carrinho = new ArrayList<>();
@@ -23,7 +23,7 @@ public class Main {
         System.out.println("\n()()()--- BEM-VINDO A LOJA VIVELIS ---()()()\n");
 
         System.out.print("Digite seu CPF, por favor: ");
-        String cpf = sc.nextLine();
+        String cpf = entrada.nextLine();
 
         Cliente cliente = clientes.get(cpf);
         if (cliente == null) {
@@ -44,8 +44,8 @@ public class Main {
             System.out.println("8 - Sair");
             System.out.print("Opção escolhida: ");
 
-            opcao = sc.nextInt();
-            sc.nextLine();
+            opcao = entrada.nextInt();
+            entrada.nextLine();
 
             if (opcao == 1) {
                 System.out.println("\n*** PRODUTOS ***");
@@ -61,7 +61,7 @@ public class Main {
                 System.out.println("4 - Difusores Aromáticos");
                 System.out.print("Escolha uma opção: ");
 
-                int cat = sc.nextInt();
+                int cat = entrada.nextInt();
                 String categoria = "";
 
                 if (cat == 1) {
@@ -85,11 +85,11 @@ public class Main {
                 }
             } else if (opcao == 3) {
                 System.out.print("Número do produto: ");
-                int num = sc.nextInt();
+                int num = entrada.nextInt();
 
                 if (num >= 0 && num < produtos.size()) {
                     System.out.print("Quantidade: ");
-                    int quantidade = sc.nextInt();
+                    int quantidade = entrada.nextInt();
 
                     if (quantidade <= 0) {
                         System.out.println("Quantidade inválida!");
@@ -151,13 +151,13 @@ public class Main {
 
 
                     System.out.print("Número do item para remover: ");
-                    int numItem = sc.nextInt();
+                    int numItem = entrada.nextInt();
 
                     if (numItem >= 0 && numItem < carrinho.size()) {
                         ItemCarrinho item = carrinho.get(numItem);
                         System.out.println("Quantidade atual: " + item.quantidade);
                         System.out.print("Quantidade a remover (0 = remover tudo): ");
-                        int qtdRemover = sc.nextInt();
+                        int qtdRemover = entrada.nextInt();
 
                         if (qtdRemover <= 0 || qtdRemover >= item.quantidade) {
                             // Remove o item completamente
@@ -199,7 +199,7 @@ public class Main {
                     System.out.println("3 - PIX (10% desconto)");
                     System.out.print("Escolha: ");
 
-                    int pag = sc.nextInt();
+                    int pag = entrada.nextInt();
 
                     if (pag == 1) {
                         System.out.println("Débito selecionado");
@@ -224,3 +224,20 @@ public class Main {
 
                     carrinho.clear();
                 }
+
+            } else if (opcao == 7) {
+                System.out.println("\n*** SUPORTE  ***");
+                System.out.println("Atendimento: 8h às 18h de segunda a sexta-feira");
+                System.out.println("Email: suportevivelis@vivelis.com");
+                System.out.println("Nosso WhatsApp: (48) 99655-3129");
+            } else if (opcao == 8) {
+                System.out.println("Obrigado por visitar a Vivelis. Volte sempre!");
+                break;
+            } else {
+                System.out.println("Opção inválida!");
+            }
+        }
+
+        entrada.close();
+    }
+}
