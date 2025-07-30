@@ -30,3 +30,19 @@ public class Main {
             cliente = new Cliente(cpf);
             clientes.put(cpf, cliente);
         }
+
+        int opcao = 1;
+        while (opcao != 0) {
+            System.out.println("\n    *** MENU ***");
+            System.out.println("1 - Ver Produtos");
+            System.out.println("2 - Filtrar Categoria");
+            System.out.println("3 - Adicionar no Carrinho");
+            System.out.println("4 - Ver Carrinho");
+            System.out.println("5 - Remover do Carrinho");
+            System.out.println("6 - Comprar");
+            System.out.println("7 - Suporte");
+            System.out.println("8 - Sair");
+            System.out.print("Opção escolhida: ");
+
+            opcao = sc.nextInt();
+            sc.nextLine();
