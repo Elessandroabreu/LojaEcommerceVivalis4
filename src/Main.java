@@ -76,3 +76,151 @@ public class Main {
                     System.out.println("Categoria inválida!");
                     continue;
                 }
+
+                System.out.println("\n*** PRODUTOS - " + categoria + " - ***");
+                for (int i = 0; i < produtos.size(); i++) {
+                    if (produtos.get(i).categoria.equals(categoria)) {
+                        System.out.println(i + " - " + produtos.get(i).nome + " | R$ " + produtos.get(i).preco);
+                    }
+                }
+            } else if (opcao == 3) {
+                System.out.print("Número do produto: ");
+                int num = sc.nextInt();
+
+                if (num >= 0 && num < produtos.size()) {
+                    System.out.print("Quantidade: ");
+                    int quantidade = sc.nextInt();
+
+                    if (quantidade <= 0) {
+                        System.out.println("Quantidade inválida!");
+                        continue;
+                    }
+
+                    // Verificar se produto já está no carrinho
+                    boolean encontrou = false;
+                    for (int i = 0; i < carrinho.size(); i++) {
+                        if (carrinho.get(i).produto.nome.equals(produtos.get(num).nome)) {
+                            carrinho.get(i).quantidade = carrinho.get(i).quantidade + quantidade;
+                            System.out.println("Quantidade atualizada no carrinho!");
+                            encontrou = true;
+                            break;
+                        }
+                    }
+
+                    // Se não encontrou, adicionar novo item
+                    if (!encontrou) {
+                        carrinho.add(new ItemCarrinho(produtos.get(num), quantidade));
+                        System.out.println("Produto adicionado ao carrinho!");
+                    }
+                } else {
+                    System.out.println("Produto inválido!");
+                }
+            } else if (opcao == 4) {
+                System.out.println("\n*** CARRINHO ***");
+                if (carrinho.size() == 0) {
+                    System.out.println("Carrinho vazio, adicione alguns produtos para continuar!");
+                } else {
+                    double total = 0;
+                    System.out.println("(Num - Produto - Qtd - Preço Unit. - Subtotal)");
+                    for (int i = 0; i < carrinho.size(); i++) {
+                        ItemCarrinho item = carrinho.get(i);
+                        double subtotal = item.produto.preco * item.quantidade;
+                        System.out.println(i + " - " + item.produto.nome + " | Qtd: " + item.quantidade +
+                                " | R$ " + item.produto.preco + " | Subtotal: R$ " + subtotal);
+                        total = total + subtotal;
+                    }
+                    System.out.println("TOTAL: R$ " + total);
+
+                    if (total >= 29.90) {
+                        System.out.println("FRETE GRÁTIS!");
+                    } else {
+                        double falta = 29.90 - total;
+                        System.out.println("Falta R$ " + falta + " para frete grátis");
+                    }
+                }
+            } else if (opcao == 5) {
+                if (carrinho.size() == 0) {
+                    System.out.println("Carrinho vazio!");
+                } else {
+                    System.out.println("\n*** REMOVER DO CARRINHO ***");
+                    System.out.println("(Num - Produto - Qtd Atual)");
+                    for (int i = 0; i < carrinho.size(); i++) {
+                        ItemCarrinho item = carrinho.get(i);
+                        System.out.println(i + " - " + item.produto.nome + " | Qtd: " + item.quantidade);
+                    }
+
+
+                    System.out.print("Número do item para remover: ");
+                    int numItem = sc.nextInt();
+
+                    if (numItem >= 0 && numItem < carrinho.size()) {
+                        ItemCarrinho item = carrinho.get(numItem);
+                        System.out.println("Quantidade atual: " + item.quantidade);
+                        System.out.print("Quantidade a remover (0 = remover tudo): ");
+                        int qtdRemover = sc.nextInt();
+
+                        if (qtdRemover <= 0 || qtdRemover >= item.quantidade) {
+                            // Remove o item completamente
+                            carrinho.remove(numItem);
+                            System.out.println("Item removido do carrinho!");
+                        } else {
+                            // Remove apenas a quantidade especificada
+                            item.quantidade = item.quantidade - qtdRemover;
+                            System.out.println("Quantidade reduzida! Nova quantidade: " + item.quantidade);
+                        }
+                    } else {
+                        System.out.println("Item inválido!");
+                    }
+                }
+
+            } else if (opcao == 6) {
+                if (carrinho.size() == 0) {
+                    System.out.println("Seu carrinho está vazio!");
+                } else {
+                    double total = 0;
+                    for (int i = 0; i < carrinho.size(); i++) {
+                        ItemCarrinho item = carrinho.get(i);
+                        total = total + (item.produto.preco * item.quantidade);
+                    }
+
+                    System.out.println("\n=== FINALIZAR COMPRA ===");
+                    System.out.println("Subtotal: R$ " + total);
+
+                    if (total < 29.90) {
+                        System.out.println("Frete: R$ 9.90");
+                        total = total + 9.90;
+                    } else {
+                        System.out.println("Frete: GRÁTIS");
+                    }
+
+                    System.out.println("Pagamento:");
+                    System.out.println("1 - Débito");
+                    System.out.println("2 - Crédito");
+                    System.out.println("3 - PIX (10% desconto)");
+                    System.out.print("Escolha: ");
+
+                    int pag = sc.nextInt();
+
+                    if (pag == 1) {
+                        System.out.println("Débito selecionado");
+                    } else if (pag == 2) {
+                        System.out.println("Crédito selecionado");
+                    } else if (pag == 3) {
+                        total = total * 0.9;
+                        System.out.println("PIX selecionado - 10% desconto!");
+                    } else {
+                        System.out.println("Pagamento inválido!");
+                        continue;
+                    }
+
+                    System.out.println("TOTAL FINAL: R$ " + total);
+                    System.out.println("Compra realizada!");
+
+                    cliente.compras = cliente.compras + 1;
+
+                    if (cliente.compras % 10 == 0) {
+                        System.out.println("PARABÉNS! Você ganhou um brinde!");
+                    }
+
+                    carrinho.clear();
+                }
