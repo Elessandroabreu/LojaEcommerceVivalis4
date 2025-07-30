@@ -51,7 +51,7 @@ public class Main {
                 System.out.println("\n*** PRODUTOS ***");
                 System.out.println("(Num - Descrição - Categoria - Valor)");
                 for (int i = 0; i < produtos.size(); i++) {
-                    System.out.println(i + " - " + produtos.get(i).nome + " | " + produtos.get(i).categoria + " | R$ " + produtos.get(i).preco);
+                    System.out.println(i + 1 + " - " + produtos.get(i).nome + " | " + produtos.get(i).categoria + " | R$ " + produtos.get(i).preco);
                 }
             } else if (opcao == 2) {
                 System.out.println("\n*** CATEGORIAS ***");
@@ -86,6 +86,7 @@ public class Main {
             } else if (opcao == 3) {
                 System.out.print("Número do produto: ");
                 int num = entrada.nextInt();
+                num = num - 1;
 
                 if (num >= 0 && num < produtos.size()) {
                     System.out.print("Quantidade: ");
@@ -125,16 +126,16 @@ public class Main {
                     for (int i = 0; i < carrinho.size(); i++) {
                         ItemCarrinho item = carrinho.get(i);
                         double subtotal = item.produto.preco * item.quantidade;
-                        System.out.println(i + " - " + item.produto.nome + " | Qtd: " + item.quantidade +
+                        System.out.println(i + 1+ " - " + item.produto.nome + " | Qtd: " + item.quantidade +
                                 " | R$ " + item.produto.preco + " | Subtotal: R$ " + subtotal);
                         total = total + subtotal;
                     }
                     System.out.println("TOTAL: R$ " + total);
 
-                    if (total >= 29.90) {
+                    if (total >= 199.90) {
                         System.out.println("FRETE GRÁTIS!");
                     } else {
-                        double falta = 29.90 - total;
+                        double falta = 199.90 - total;
                         System.out.printf("Falta R$ %.2f para frete grátis", falta);
                     }
                 }
