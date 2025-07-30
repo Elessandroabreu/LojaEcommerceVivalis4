@@ -42,7 +42,7 @@ public class Main {
             System.out.println("6 - Comprar");
             System.out.println("7 - Suporte");
             System.out.println("8 - Sair");
-            System.out.print("Opção escolhida: ");
+            System.out.print("escolha uma opção: ");
 
             opcao = entrada.nextInt();
             entrada.nextLine();
@@ -53,6 +53,7 @@ public class Main {
                 for (int i = 0; i < produtos.size(); i++) {
                     System.out.println(i + 1 + " - " + produtos.get(i).nome + " | " + produtos.get(i).categoria + " | R$ " + produtos.get(i).preco);
                 }
+
             } else if (opcao == 2) {
                 System.out.println("\n*** CATEGORIAS ***");
                 System.out.println("1 - Perfumes");
@@ -97,7 +98,7 @@ public class Main {
                         continue;
                     }
 
-                    // Verificar se produto já está no carrinho
+
                     boolean encontrou = false;
                     for (int i = 0; i < carrinho.size(); i++) {
                         if (carrinho.get(i).produto.nome.equals(produtos.get(num).nome)) {
@@ -130,13 +131,13 @@ public class Main {
                                 " | R$ " + item.produto.preco + " | Subtotal: R$ " + subtotal);
                         total = total + subtotal;
                     }
-                    System.out.println("TOTAL: R$ " + total);
+                    System.out.println("TOTAL DO CARRINHO: R$ " + total);
 
                     if (total >= 199.90) {
                         System.out.println("FRETE GRÁTIS!");
                     } else {
                         double falta = 199.90 - total;
-                        System.out.printf("Falta R$ %.2f para frete grátis", falta);
+                        System.out.printf("Falta R$ %.2f para o frete grátis, ", falta);
                     }
                 }
 
@@ -162,11 +163,11 @@ public class Main {
                         int qtdRemover = entrada.nextInt();
 
                         if (qtdRemover <= 0 || qtdRemover >= item.quantidade) {
-                            // Remove o item completamente
+
                             carrinho.remove(numItem);
                             System.out.println("Item removido do carrinho!");
                         } else {
-                            // Remove apenas a quantidade especificada
+
                             item.quantidade = item.quantidade - qtdRemover;
                             System.out.println("Quantidade reduzida! Nova quantidade: " + item.quantidade);
                         }
@@ -199,7 +200,7 @@ public class Main {
                     System.out.println("1 - Débito");
                     System.out.println("2 - Crédito");
                     System.out.println("3 - PIX (10% desconto)");
-                    System.out.print("Escolha: ");
+                    System.out.print("Escolha  o método de pagamento: ");
 
                     int pag = entrada.nextInt();
 
