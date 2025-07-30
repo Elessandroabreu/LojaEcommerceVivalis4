@@ -9,16 +9,14 @@ public class Main {
         HashMap<String, Cliente> clientes = new HashMap<>();
         ArrayList<ItemCarrinho> carrinho = new ArrayList<>();
 
-        produtos.add(new Produto("Shampoo Hidratante", "Shampoos", 15.90));
-        produtos.add(new Produto("Shampoo Anti-Caspa", "Shampoos", 18.50));
-        produtos.add(new Produto("Sabonete Líquido Lavanda", "Sabonetes", 12.30));
-        produtos.add(new Produto("Difusor Aromático Citrus", "Difusores Aromáticos", 8.90));
-        produtos.add(new Produto("Sabonete Esfoliante", "Sabonetes", 25.00));
-        produtos.add(new Produto("Perfume Floral 100ml", "Perfumes", 35.90));
-        produtos.add(new Produto("Shampoo Nutritivo", "Shampoos", 22.70));
-        produtos.add(new Produto("Perfume Masculino 50ml", "Perfumes", 89.90));
-        produtos.add(new Produto("Sabonete Natural Mel", "Sabonetes", 14.50));
-        produtos.add(new Produto("Difusor Aromático Relaxante", "Difusores Aromáticos", 28.90));
+        produtos.add(new Produto("Perfume Brisa Serena 50ml", "Perfumes", 189.90));
+        produtos.add(new Produto("Perfume Noite Intensa 100ml", "Perfumes", 219.90));
+        produtos.add(new Produto("Sabonete Jasmim Sublime", "Sabonetes", 29.90));
+        produtos.add(new Produto("Sabonete Alpine Pure", "Sabonetes", 6.50));
+        produtos.add(new Produto("Shampoo Frescor Revitalizante", "Shampoos", 34.90));
+        produtos.add(new Produto("Shampoo Natural Shine", "Shampoos", 9.90));
+        produtos.add(new Produto("Difusor Amanhecer Leve", "Difusores Aromáticos", 79.90));
+        produtos.add(new Produto("Difusor Tranquilidade da Floresta", "Difusores Aromáticos", 99.90));
 
         System.out.println("\n()()()--- BEM-VINDO A LOJA VIVELIS ---()()()\n");
 
