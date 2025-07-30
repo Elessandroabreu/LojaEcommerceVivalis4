@@ -107,7 +107,7 @@ public class Main {
                         }
                     }
 
-                    // Se não encontrou, adicionar novo item
+
                     if (!encontrou) {
                         carrinho.add(new ItemCarrinho(produtos.get(num), quantidade));
                         System.out.println("Produto adicionado ao carrinho!");
@@ -121,7 +121,7 @@ public class Main {
                     System.out.println("Carrinho vazio, adicione alguns produtos para continuar!");
                 } else {
                     double total = 0;
-                    System.out.println("(Num - Produto - Qtd - Preço Unit. - Subtotal)");
+                    System.out.println("(Num - Produto - Quantidade - Preço Unit - Subtotal)");
                     for (int i = 0; i < carrinho.size(); i++) {
                         ItemCarrinho item = carrinho.get(i);
                         double subtotal = item.produto.preco * item.quantidade;
@@ -135,9 +135,10 @@ public class Main {
                         System.out.println("FRETE GRÁTIS!");
                     } else {
                         double falta = 29.90 - total;
-                        System.out.println("Falta R$ " + falta + " para frete grátis");
+                        System.out.printf("Falta R$ %.2f para frete grátis", falta);
                     }
                 }
+
             } else if (opcao == 5) {
                 if (carrinho.size() == 0) {
                     System.out.println("Carrinho vazio!");
