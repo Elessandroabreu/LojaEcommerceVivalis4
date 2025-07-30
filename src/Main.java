@@ -225,7 +225,7 @@ public class Main {
 
                     cliente.compras = cliente.compras + 1;
 
-                    if (cliente.compras % 10 == 0) {
+                    if (cliente.compras % 2 == 0) {
                         System.out.println("PARABÉNS! Você ganhou um brinde!");
                     }
 
