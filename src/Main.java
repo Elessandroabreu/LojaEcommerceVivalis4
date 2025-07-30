@@ -19,3 +19,14 @@ public class Main {
         produtos.add(new Produto("Perfume Masculino 50ml", "Perfumes", 89.90));
         produtos.add(new Produto("Sabonete Natural Mel", "Sabonetes", 14.50));
         produtos.add(new Produto("Difusor Aromático Relaxante", "Difusores Aromáticos", 28.90));
+
+        System.out.println("\n()()()--- BEM-VINDO A LOJA VIVELIS ---()()()\n");
+
+        System.out.print("Digite seu CPF, por favor: ");
+        String cpf = sc.nextLine();
+
+        Cliente cliente = clientes.get(cpf);
+        if (cliente == null) {
+            cliente = new Cliente(cpf);
+            clientes.put(cpf, cliente);
+        }

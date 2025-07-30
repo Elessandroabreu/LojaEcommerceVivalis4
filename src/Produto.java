@@ -7,4 +7,5 @@ public class Produto {
         this.nome = nome;
         this.categoria = categoria;
         this.preco = preco;
+    }
 }
