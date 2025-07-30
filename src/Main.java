@@ -46,3 +46,33 @@ public class Main {
 
             opcao = sc.nextInt();
             sc.nextLine();
+
+            if (opcao == 1) {
+                System.out.println("\n*** PRODUTOS ***");
+                System.out.println("(Num - Descrição - Categoria - Valor)");
+                for (int i = 0; i < produtos.size(); i++) {
+                    System.out.println(i + " - " + produtos.get(i).nome + " | " + produtos.get(i).categoria + " | R$ " + produtos.get(i).preco);
+                }
+            } else if (opcao == 2) {
+                System.out.println("\n*** CATEGORIAS ***");
+                System.out.println("1 - Perfumes");
+                System.out.println("2 - Sabonetes");
+                System.out.println("3 - Shampoos");
+                System.out.println("4 - Difusores Aromáticos");
+                System.out.print("Escolha uma opção: ");
+
+                int cat = sc.nextInt();
+                String categoria = "";
+
+                if (cat == 1) {
+                    categoria = "Perfumes";
+                } else if (cat == 2) {
+                    categoria = "Sabonetes";
+                } else if (cat == 3) {
+                    categoria = "Shampoos";
+                } else if (cat == 4) {
+                    categoria = "Difusores Aromáticos";
+                } else {
+                    System.out.println("Categoria inválida!");
+                    continue;
+                }
