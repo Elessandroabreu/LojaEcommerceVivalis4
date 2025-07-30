@@ -124,7 +124,7 @@ public class Main {
                     System.out.println("(Num - Produto - Qtd Atual)");
                     for (int i = 0; i < carrinho.size(); i++) {
                         ItemCarrinho item = carrinho.get(i);
-                        System.out.println(i + " - " + item.produto.nome + " | Qtd: " + item.quantidade);
+                        System.out.println(i + 1 + " - " + item.produto.nome + " | Qtd: " + item.quantidade);
                     }
 
 
@@ -170,9 +170,12 @@ public class Main {
 
                     if (total > 199.90) {
                         System.out.println("FRETE GRÁTIS!");
-                    } else {
+                    } else if (total <= 199.90) {
+                        total = total + 29.90;
+                        System.out.println("Vai ser adicionado o frete de R$ 29,90 a sua compra.\n");
+                        System.out.printf("Total do produto + Frete: R$ %.2f \n", total);
                         double falta = 199.90 - total;
-                        System.out.printf("Falta R$ %.2f para o frete grátis, ", falta);
+                        System.out.printf("Falta R$ %.2f para o frete ser grátis, /n", falta);
                     }
                 }
 
@@ -189,9 +192,10 @@ public class Main {
                     System.out.println("\n=== FINALIZAR COMPRA ===");
                     System.out.println("Subtotal: R$ " + total);
 
-                    if (total < 29.90) {
-                        System.out.println("Frete: R$ 9.90");
-                        total = total + 9.90;
+                    if (total <= 199.90) {
+                        System.out.println("Frete: R$ 29.90");
+                        total = total + 29.90;
+                        System.out.printf("Total Produtos + frete: R$ %.2f\n\n", total);
                     } else {
                         System.out.println("Frete: GRÁTIS");
                     }
