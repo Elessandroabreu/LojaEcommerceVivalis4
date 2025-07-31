@@ -87,7 +87,7 @@ public class Main {
                     System.out.println("\n*** PRODUTOS - " + categoria + " - ***");
                     for (int i = 0; i < produtos.size(); i++) {
                         if (produtos.get(i).categoria.equals(categoria)) {
-                            System.out.println(i + 1+" - " + produtos.get(i).nome + " | R$ " + produtos.get(i).preco);
+                            System.out.println(i + 1 + " - " + produtos.get(i).nome + " | R$ " + produtos.get(i).preco);
                         }
                     }
                     break;
@@ -143,12 +143,14 @@ public class Main {
                         if (numItem >= 0 && numItem < carrinho.size()) {
                             ItemCarrinho item = carrinho.get(numItem);
                             System.out.println("Quantidade atual: " + item.quantidade);
-                            System.out.print("Quantidade a remover (0 = remover tudo): ");
+                            System.out.print("Quantidade a remover (0 = Para remover tudo): ");
                             int qtdRemover = entrada.nextInt();
 
-                            if (qtdRemover <= 0 || qtdRemover >= item.quantidade) {
+                            if (qtdRemover == 0) {
                                 carrinho.remove(numItem);
-                                System.out.println("Item removido do carrinho!");
+                                System.out.println("Carrinho Vazio!");
+                            }else if (qtdRemover < 0 || qtdRemover >= item.quantidade) {
+                                System.out.println("Quantidade inválida inserida!");
                             } else {
                                 item.quantidade = item.quantidade - qtdRemover;
                                 System.out.println("Quantidade reduzida! Nova quantidade: " + item.quantidade);
@@ -169,7 +171,7 @@ public class Main {
                         for (int i = 0; i < carrinho.size(); i++) {
                             ItemCarrinho item = carrinho.get(i);
                             double subtotal = item.produto.preco * item.quantidade;
-                            System.out.println(i + 1+ " - " + item.produto.nome + " | Qtd: " + item.quantidade +
+                            System.out.println(i + 1 + " - " + item.produto.nome + " | Qtd: " + item.quantidade +
                                     " | R$ " + item.produto.preco + " | Subtotal: R$ " + subtotal);
                             total = total + subtotal;
                         }
