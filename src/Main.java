@@ -179,7 +179,7 @@ public class Main {
 
                         if (total > 199.90) {
                             System.out.println("FRETE GRÁTIS!");
-                        } else if (total <= 199.90) {
+                        } else {
                             double falta = 199.90 - total;
                             System.out.printf("Falta R$ %.2f para o frete ser grátis. \n", falta);
                             System.out.println("Vai ser adicionado o frete de R$ 29,90 a sua compra.\n");
